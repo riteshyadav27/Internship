@@ -1,0 +1,223 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+h1,p{
+    margin: 0;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+section{
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar>.nav-items {
+    padding: 10px;
+    margin-right: 50px;
+}
+
+.sidemenu {
+    display: none;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+
+    transform: translateX(100%);
+    transition: linear 0.5s;
+}
+
+#ham-cross {
+
+    position: absolute;
+    top: 0px;
+    right: 0%;
+    margin: 30px 30px;
+
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px 10px 20px 50px;
+}
+
+.hero > img {
+    transform: scale(0.8);
+}
+
+.hero-content{
+    height: fit-content;
+
+}
+
+.hero-content > * {
+    margin-bottom: 50px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+
+.search-bar > input {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.sub-nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #2F80ED;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+}
+
+.stepsToUse{
+    padding: 20px;
+    height: max-content;
+}
+
+.stepsToUse > h2{
+    font-size: 34px;
+}
+
+.STU-cards{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.aboutUs , .conatctUs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px 10px 20px 50px;
+    height: max-content;
+
+}
+
+.aboutUsContent , .conatctUsContent{
+    width: 50%;
+}
+
+.aboutUsContent > * {
+    margin-bottom: 50px;
+}
+
+.aboutUsContent > div > h2 {
+    font-size: 42px;
+}
+
+.learnMore-btn {
+    padding: 10px 15px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background-color: rgb(182, 182, 182);
+    border-radius: 4px;
+}
+
+.conatctUsForm{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    flex-direction: column;
+}
+
+.conatctUsForm > input,textarea {
+    width: 80%;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.conatctUsForm > textarea{
+    height: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .navbar {
+        display: none;
+    }
+
+
+    .sidemenu {
+        display: block;
+    }
+
+    .hero{
+        padding: 20px;
+    }
+
+    .hero > img {
+        display: none;
+    }
+
+    .STU-cards{
+        flex-direction: column;
+        padding: 20px;
+        margin-top: 0%;
+    }
+
+    .STU-cards > img {
+        transform: scale(0.8);
+    }
+
+    .aboutUs, .conatctUs{
+        flex-direction: column;
+        padding: 20px;
+        height: max-content;
+    }
+
+    .aboutUs > img , .conatctUs > img{
+        height: 50vh;
+        width: 50vh;
+    }
+
+    .aboutUsContent, .conatctUsContent{
+        width: 90%;
+    }
+
+    .aboutUsContent > div > h2 {
+        font-size: 32px;
+    }
+}
