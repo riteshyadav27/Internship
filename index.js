@@ -4,6 +4,8 @@ let ham = document.querySelector('#ham').onclick = hamOpen
 let cross = document.getElementById('ham-cross').onclick = hamOpen
 
 
+
+
 let open = false
 
 
@@ -20,3 +22,4 @@ function hamOpen(){
         sidebar.style.transform = "translateX(100%)"
     }
 }
+
