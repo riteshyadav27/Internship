@@ -6,15 +6,18 @@ let cross = document.getElementById('ham-cross').onclick = hamOpen
 let textChoice = document.querySelector('#text-choice')
 let imageChoice = document.querySelector('#image-choice')
 let videosChoice = document.querySelector('#videos-choice')
+let searchBar = document.querySelector('#search-bar')
+let output = document.querySelector('.search-output')
+let STU = document.querySelector('.stepsToUse')
 
 textChoice.onclick = textSelect
 imageChoice.onclick = imageSelect
 videosChoice.onclick = videosSelect
 
 let open = false
-let text = false
-let image = false
-let videos = false
+var text = false
+var image = false
+var videos = false
 
 
 function hamOpen() {
@@ -33,42 +36,74 @@ function hamOpen() {
 
 function textSelect() {
 
+    text = !text
+
     if (textChoice.classList.contains("sub-nav-items-active")) {
 
         textChoice.classList.remove("sub-nav-items-active")
-        console.log(textChoice.classList);
         return
     }
 
+
     textChoice.classList += " sub-nav-items-active"
-    console.log(textChoice.classList);
 
 }
 
 function imageSelect() {
 
+    image = !image
+
     if (imageChoice.classList.contains("sub-nav-items-active")) {
 
         imageChoice.classList.remove("sub-nav-items-active")
-        console.log(imageChoice.classList);
         return
     }
 
+    image = true
     imageChoice.classList += " sub-nav-items-active"
-    console.log(imageChoice.classList);
 
 }
 
 function videosSelect() {
 
+    videos = !videos
     if (videosChoice.classList.contains("sub-nav-items-active")) {
 
         videosChoice.classList.remove("sub-nav-items-active")
-        console.log(videosChoice.classList);
         return
     }
 
+    videos = true
     videosChoice.classList += " sub-nav-items-active"
-    console.log(videosChoice.classList);
 
+}
+
+function search() {
+
+    output.style.display = "none"
+    STU.style.display = "none"
+
+    if (text) {
+        output.style.display = "flex"
+        document.querySelector('.text-output').style.display = "block"
+    }
+    else {
+        document.querySelector('.text-output').style.display = "none"
+    }
+
+    if (image) {
+        output.style.display = "flex"
+        document.querySelector('.image-output').style.display = "block"
+    }
+    else {
+        document.querySelector('.image-output').style.display = "none"
+    }
+
+    if (videos) {
+        output.style.display = "flex"
+        document.querySelector('.video-output').style.display = "block"
+    }
+    else {
+        document.querySelector('.video-output').style.display = "none"
+    }
 }

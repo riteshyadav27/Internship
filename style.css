@@ -25,6 +25,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    overflow-x: hidden;
 }
 
 .navbar> a {
@@ -129,6 +130,7 @@ header {
 }
 
 .stepsToUse{
+    display: block;
     padding: 20px;
     height: max-content;
 }
@@ -205,12 +207,43 @@ footer{
     text-align: center;
 }
 
+.search-output{
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: max-content;
+    padding: 0px 20px;
+}
+
+.text-output, .image-output, .video-output{
+    display: none;
+    width: 100%;
+    height: max-content;
+}
+.output-img-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.output-img-container > img {
+    width: 22vw;
+    height: 15vw;
+    margin-right: 20px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .navbar {
         display: none;
     }
 
+    body{
+        overflow-x: hidden;
+    }
 
     .sidemenu {
         display: block;
@@ -251,5 +284,15 @@ footer{
 
     .aboutUsContent > div > h2 {
         font-size: 32px;
+    }
+
+    .output-img-container{
+        flex-direction: column;
+    }
+
+    .output-img-container > img{
+        width: 80vw;
+        height: 70vw;
+        margin-top: 20px;
     }
 }
