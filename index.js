@@ -27,7 +27,7 @@ function hamOpen() {
     let sidebar = document.querySelector('.sidebar')
 
     if (open) {
-        sidebar.style.transform = "translateX(0%)"
+        sidebar.style.transform = "translateX(-105%)"
     }
     else {
         sidebar.style.transform = "translateX(100%)"
