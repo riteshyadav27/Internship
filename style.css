@@ -9,7 +9,7 @@ body {
 }
 
 h1,p{
-    margin: 0;
+    margin: 10px;
 }
 
 /* .border {
@@ -33,6 +33,7 @@ header {
     margin-right: 50px;
     text-decoration: none;
     color: black;
+    font-weight: 400;
 
 }
 
@@ -133,10 +134,12 @@ header {
     display: block;
     padding: 20px;
     height: max-content;
+    margin-top: -5rem;
+    margin-bottom: 6rem;
 }
 
 .stepsToUse > h2{
-    font-size: 34px;
+    font-size: 34px;    
 }
 
 .STU-cards{
@@ -208,6 +211,23 @@ footer{
     text-align: center;
 }
 
+.footerContent > p >a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.footerContent2 > p{
+    text-align: end;   
+}
+
+.footerContent2 > p >a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    margin: 5px;
+}
+
 .search-output{
     display: none;
     justify-content: flex-start;
@@ -275,6 +295,10 @@ footer{
         padding: 20px;
         height: max-content;
     }
+    
+    .aboutUs{
+        margin-top: 60rem;       
+    }
 
     .aboutUs > img , .conatctUs > img{
         height: 50vh;
@@ -299,3 +323,4 @@ footer{
         margin-top: 20px;
     }
 }
+

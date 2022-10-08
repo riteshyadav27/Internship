@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pricing.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> -->
 
     <title>Feynman Innovations Pvt. Ltd.</title>
 </head>
@@ -21,7 +21,7 @@
 
             <a href="./index.html"> <span class="nav-items">Home</span> </a>
             <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
-            <a href=""> <span class="nav-items">Pricing</span> </a>
+            <a href="#pricing"> <span class="nav-items">Pricing</span> </a>
             <a href="/login.html" id="signInBtn"> <span class="nav-items">SignIn</span> </a>
 
         </div>
@@ -47,7 +47,7 @@
         <div class="hero-content ">
 
             <div>
-                <h1>Sir Visvesvaraya Answers</h1>
+                <h1 style="font-size: 42px;">Sir Visvesvaraya Answers</h1>
                 <p>A Civil Engineering Knowledge Engine App Powered by AI</p>
             </div>
 
@@ -110,11 +110,11 @@
 
     </section>
 
-    <section class="stepsToUse ">
+    <section class="stepsToUse">
 
-        <h2 style="text-align: center;">STEPS TO GET ANSWERS</h2>
+        <h2 style="text-align: center; font-size: 36px;">STEPS TO GET ANSWERS</h2>
 
-        <div class="STU-cards">
+        <div class="STU-cards" style="padding-top: 20px;">
 
             <img src="./Assets/STU1.jpg" alt="">
             <img src="./Assets/STU2.jpg" alt="">
@@ -125,9 +125,114 @@
     </section>
 
 
- 
+     <section class="pricing" id="pricing">
 
-    <section class="aboutUs " id="aboutUs">
+        <h1 style="text-align:center; font-size:69px; margin: 0px;">Pricing</h1>
+
+        <p style="text-align:center; font-size: 18px;">Monthly
+    
+            <label class="switch">
+                <input type="checkbox" onclick="Price_change()">
+                <span class="slider round"></span>
+            </label>
+    
+            Annually
+        </p>
+    
+        <br>
+    
+        <div class="container">
+            <div class="personal">
+                <p style="font-size: 24px;">Personal</p>
+                <p style="font-size: 18px;"><b class="Price_Personal" style="font-size: 40px; font-weight:700;">$14</b>
+                    /month</p>
+                <li><img src="./img/check.svg" alt=""><span>1 Teammate</span></li>
+                <li><img src="./img/check.svg" alt=""><span>1 Project/Website</span></li>
+                <li><img src="./img/check.svg" alt=""><span>Unlimited Pages & Data</span></li>
+                <li><img src="./img/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
+                <li><img src="./img/check.svg" alt=""><span>SSL Certificate Included</span></li>
+                <br>
+                <button class="btn">Start Free<img src="./img/arrow-right.svg" alt="" style="margin-left: 5px;"></button>
+    
+                <p class="price_year_personal" style="color: gray;">$168 per year. Billed monthly.</p>
+            </div>
+    
+    
+            <div class="personal">
+                <p style="font-size: 24px;">Professional</p>
+                <p style="font-size: 18px;"><b class="Price_Professional" style="font-size: 40px; font-weight:700;">$22</b>
+                    /month</p>
+                <li><img src="./img/check.svg" alt=""><span>1 Teammate</span></li>
+                <li><img src="./img/check.svg" alt=""><span>1 Project/Website</span></li>
+                <li><img src="./img/check.svg" alt=""><span>Unlimited Pages & Data</span></li>
+                <li><img src="./img/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
+                <li><img src="./img/check.svg" alt=""><span>SSL Certificate Included</span></li>
+                <br>
+                <button class="btn">Start Free<img src="./img/arrow-right.svg" alt="" style="margin-left: 5px;"></button>
+    
+                <p class="price_year_professional" style="color: gray;">$264 per year. Billed monthly.</p>
+            </div>
+    
+    
+            <div class="personal">
+                <p style="font-size: 24px;">Group</p>
+                <p style="font-size: 18px;"><b class="Price_Group" style="font-size: 40px; font-weight:700;">$45</b> /month
+                </p>
+                <li><img src="./img/check.svg" alt=""><span>1 Teammate</span></li>
+                <li><img src="./img/check.svg" alt=""><span>1 Project/Website</span></li>
+                <li><img src="./img/check.svg" alt=""><span>Unlimited Pages & Data</span></li>
+                <li><img src="./img/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
+                <li><img src="./img/check.svg" alt=""><span>SSL Certificate Included</span></li>
+                <br>
+                <button class="btn">Start Free<img src="./img/arrow-right.svg" alt="" style="margin-left: 5px;"></button>
+    
+                <p class="price_year_group" style="color: gray;">$540 per year. Billed monthly.</p>
+            </div>
+        </div>
+    
+        <script>
+            let monthly = false;
+            let annually = true;
+            function Price_change() {
+    
+    
+                if (annually) {
+                    monthly = true;
+                    annually = false;
+                    document.querySelector(".Price_Personal").innerHTML = "$12";
+                    document.querySelector(".Price_Professional").innerHTML = "$19";
+                    document.querySelector(".Price_Group").innerHTML = "$39";
+    
+                    document.querySelector(".price_year_personal").innerHTML = "$144 billed annually. Save $24.";
+                    document.querySelector(".price_year_professional").innerHTML = "$228 billed annually. Save $24.";
+                    document.querySelector(".price_year_group").innerHTML = "$468 billed annually. Save $24.";
+                }
+    
+                else{
+                    monthly = false;
+                    annually = true;
+                    document.querySelector(".Price_Personal").innerHTML = "$14";
+                    document.querySelector(".Price_Professional").innerHTML = "$22";
+                    document.querySelector(".Price_Group").innerHTML = "$45";
+    
+                    document.querySelector(".price_year_personal").innerHTML = "$168 per year. Billed monthly.";
+                    document.querySelector(".price_year_professional").innerHTML = "$264 per year. Billed monthly..";
+                    document.querySelector(".price_year_group").innerHTML = "$540 per year. Billed monthly.";
+                }
+    
+    
+    
+    
+    
+            };
+        </script>
+
+    </section> 
+    
+    <br>
+    <br>
+
+    <section class="aboutUs " id="aboutUs" >
 
         <img src="./Assets/aboutUs-illu.svg" class="aboutsUs-illu" alt="">
 
@@ -164,12 +269,18 @@
 
     </section>
 
-    <hr>
+  
     <footer class="border">
         <div class="footerContent">
-            <p>Contact us on sva[at]feynmaninnovations[dot]in for Licensing and suggestions</p>
-            <p>© Feynman Innovations Pvt. Ltd.</p>
+            <hr>
+            <p>Contact us on <a href="">sva[at]feynmaninnovations[dot]in</a> for Licensing and suggestions</p>
+            <p><a href="">© Feynman Innovations Pvt. Ltd.</a></p>
             <p>450 xyz, East Mumbai, Mumbai, 110220, India</p>
+            
+        </div>
+
+        <div class="footerContent2">
+            <p><a href="">Terms and Condition</a> <a href="">Privacy Policy</a></p>
         </div>
     </footer>
 
