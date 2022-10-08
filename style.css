@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+
 }
 
 h1,p{
@@ -27,6 +28,7 @@ header {
     margin-right: 50px;
     text-decoration: none;
     color: black;
+
 }
 
 .sidemenu {
@@ -104,8 +106,22 @@ header {
     align-items: center;
     background-color: #2F80ED;
     color: white;
-    padding: 10px 10px;
-    border-radius: 8px;
+    padding: 5px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sub-nav-items{
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+.sub-nav-items:hover {
+    background-color: #577294;
+}
+
+.sub-nav-items-active{
+    background-color: #295793;
 }
 
 .stepsToUse{
