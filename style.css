@@ -162,6 +162,7 @@ header {
 
 .aboutUsContent > * {
     margin-bottom: 50px;
+    margin-right: 60px;
 }
 
 .aboutUsContent > div > h2 {
@@ -220,6 +221,8 @@ footer{
     display: none;
     width: 100%;
     height: max-content;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }
 .output-img-container {
     display: flex;
