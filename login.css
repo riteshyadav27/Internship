@@ -1,3 +1,7 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
 .container{
     display: flex;
     justify-content:space-evenly;
