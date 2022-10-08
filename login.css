@@ -2,6 +2,10 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont;
 }
 
+body{
+    background: #f9f9f9;
+}
+
 .container{
     display: flex;
     justify-content:space-evenly;
@@ -9,18 +13,20 @@
     overflow: hidden;
 }
 .login{
-    padding: 30px;
+    padding: 50px;
+    margin-left: 100px;
     height: max-content;
-    border: 2px solid black;
+    border: none;
     width: 25%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #bgimg{
-    width: 50vw;
-    height: 50vh;
+    width: 60vw;
+    height: 60vh;
     position: relative;
     top: 50%;
-    transform: translateY(-100%);
+    transform: translateY(-90%);
 }
 
 @media only screen and (max-width:600px) {
@@ -31,10 +37,9 @@
         flex-direction: column-reverse;
         overflow: hidden;
     }
-    #bgimg{
-        width: 90vw;
-        height: 50vh;
-    }
+   #bgimg{
+    display: none;
+   }
 }
 
 .f_pwd{
@@ -46,7 +51,7 @@
 a{
     text-decoration: none;
     color: black;
-    font-weight: bold;
+
 }
 .forget_pwd{
     font-size: small;
@@ -77,4 +82,22 @@ a{
     font-size: small;
     display: flex;
     align-items: center;
+}
+
+
+
+@media only screen and (max-width:1000px) {
+    
+    .container{
+        display: flex;
+        justify-content:space-evenly;
+        flex-direction: column-reverse;
+        overflow: hidden;
+    }
+    .login{
+        width: 50%;
+    }
+    #bgimg{
+        display: none;
+    }
 }
