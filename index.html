@@ -21,7 +21,7 @@
             <a href="./index.html"> <span class="nav-items">Home</span> </a>
             <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
             <a href=""> <span class="nav-items">Pricing</span> </a>
-            <a href="/login.html" id="signInBtn" > <span class="nav-items" >SignIn</span> </a>
+            <a href="/login.html" id="signInBtn"> <span class="nav-items">SignIn</span> </a>
 
         </div>
 
@@ -41,7 +41,7 @@
 
     </header>
 
-    <section class="hero " >
+    <section class="hero ">
 
         <div class="hero-content ">
 
@@ -52,14 +52,14 @@
 
             <div class="search-bar">
                 <img src="./Assets/search.svg" alt="search">
-                <input type="search" name="" id="" placeholder="serach here ...">
+                <input type="search" name="" onkeypress="search()" id="search-bar" placeholder="serach here ...">
             </div>
 
             <div class="sub-nav ">
 
-                <span id="text-choice" class="sub-nav-items " onclick='' >Text</span>
-                <span id="image-choice" class="sub-nav-items " onclick='' >Image</span>
-                <span id="videos-choice" class="sub-nav-items " onclick='' >Videos</span>
+                <span id="text-choice" class="sub-nav-items " onclick=''>Text</span>
+                <span id="image-choice" class="sub-nav-items " onclick=''>Image</span>
+                <span id="videos-choice" class="sub-nav-items " onclick=''>Videos</span>
 
             </div>
         </div>
@@ -68,7 +68,48 @@
 
     </section>
 
-    <section class="stepsToUse " >
+    <section class="search-output">
+
+        <h2>ANSWERS</h2>
+
+        <div class="text-output ">
+            <h3>Info</h3>
+            <p>Meaning : Lorem ipsum dolor sit amet consectetur. </p>
+            <p>Defination : Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+            <p>Explanation : Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus
+                venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum
+                facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis
+                scelerisque fermentum dui faucibus in ornare quam viverra fringilla est ullamcorper eget nulla facilisi
+                etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra</p>
+            <p>Realted Links :
+                <br>
+                <a href="">abcd.com</a>
+                <br>
+                <a href="">abcd.com</a>
+            </p>
+        </div>
+
+        <div class="image-output ">
+            <h3>Images</h3>
+            <div class="output-img-container">
+                <img src="./Assets/ans1.jpg" alt="">
+                <img src="./Assets/ans2.jpg" alt="">
+                <img src="./Assets/ans3.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="video-output ">
+            <h3>Videos</h3>
+            <div class="output-img-container">
+                <img src="./Assets/ans1.jpg" alt="">
+                <img src="./Assets/ans2.jpg" alt="">
+                <img src="./Assets/ans3.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="stepsToUse ">
 
         <h2>STEPS TO GET ANSWERS</h2>
 
@@ -108,8 +149,8 @@
                 <h2>CONTACT US</h2>
                 <form action="" class="conatctUsForm ">
 
-                    <input  type="text" placeholder="Name" >
-                    <input  type="email" placeholder="Email">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
                     <textarea type="text" placeholder="Comment Here"></textarea>
 
                 </form>
@@ -121,10 +162,10 @@
 
     <footer class="border">
         <div class="footerContent">
-        <p >Contact us on sva[at]feynmaninnovations[dot]in for Licensing and suggestions</p>
-        <p >© Feynman Innovations Pvt. Ltd.</p>
-        <p >450 xyz, East Mumbai, Mumbai, 110220, India</p>
-    </div>
+            <p>Contact us on sva[at]feynmaninnovations[dot]in for Licensing and suggestions</p>
+            <p>© Feynman Innovations Pvt. Ltd.</p>
+            <p>450 xyz, East Mumbai, Mumbai, 110220, India</p>
+        </div>
     </footer>
 
     <script src="index.js"></script>
