@@ -8,6 +8,11 @@ html,body {
     overflow-x: hidden;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 h1,p{
     margin: 10px;
 }
@@ -39,6 +44,16 @@ header {
     color: black;
     font-weight: 400;
 
+}
+
+.nav-items{
+    padding: 8px 16px;
+    border-radius: 4px;
+
+}
+
+.nav-items:hover{
+    background-color: #e8e8e8;
 }
 
 .sidemenu {
