@@ -23,19 +23,7 @@
     transform: translateY(-100%);
 }
 
-@media only screen and (max-width:600px) {
-    
-    .container{
-        display: flex;
-        justify-content:space-evenly;
-        flex-direction: column-reverse;
-        overflow: hidden;
-    }
-    #bgimg{
-        width: 90vw;
-        height: 50vh;
-    }
-}
+
 
 .f_pwd{
     display: flex;
@@ -46,7 +34,6 @@
 a{
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 .forget_pwd{
     font-size: small;
@@ -77,4 +64,22 @@ a{
     font-size: small;
     display: flex;
     align-items: center;
+}
+
+@media only screen and (max-width:600px) {
+    
+    .container{
+        display: flex;
+        justify-content:space-evenly;
+        flex-direction: column-reverse;
+        overflow: hidden;
+    }
+    #bgimg{
+        width: 90vw;
+        height: 50vh;
+    }
+
+    .login{
+        width: 75%;
+    }
 }
