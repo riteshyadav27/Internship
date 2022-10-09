@@ -324,9 +324,6 @@ footer{
         height: max-content;
     }
     
-    .aboutUs{
-        margin-top: 60rem;       
-    }
 
     .aboutUs > img , .conatctUs > img{
         height: 50vh;
