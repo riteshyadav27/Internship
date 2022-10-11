@@ -286,6 +286,10 @@ footer{
     margin-right: 20px;
 }
 
+.aboutUs{
+    margin-top: 5rem;
+}
+
 @media only screen and (max-width: 600px) {
 
     .navbar {
@@ -352,4 +356,9 @@ footer{
         display: block;
         transform: translateX(220px);
     }
+
+    .aboutUs{
+        margin-top: 3rem;
+    }
 }
+
