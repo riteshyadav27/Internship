@@ -52,19 +52,40 @@
             </div>
 
             <br>
-            <button id="btn" style="background: rgb(28, 26, 26); color: aliceblue; ">Sign in</button><br>
-            <button id="btn" style="background-color: white; "> <img
+            <button class="btn" type="submit" onclick="login()" style="background: rgb(28, 26, 26); color: aliceblue; ">Sign in</button>
+            
+            <br>
+
+            <button class="btn" style="background-color: white; "> <img
                     style="width: 20px; height: 20px; margin-right: 5px;" src="/Images/Google__G__Logo.svg.webp"
                     alt="google_logo"> <span>Sign in with Google</span></button>
 
             <p style="font-size: small; text-align: center; color: rgb(95, 104, 104); margin-top: 20px;">Don't have an account? <a
-                    href="#">Sign up for free</a></p>
+                    href="#"><b>Sign up for free</b></a></p>
         </div>
 
         <img id="bgimg"  src="/Images/login_bg.svg" alt="bg_img">
     </section>
 
+    <section class="container" id="signup">
+        <div class="login">
+            <h1 style="margin-bottom: 5px; font-size: 30px;">Sign Up</h1>
+            <p style="color: rgb(95, 104, 104);margin-top: 2px; margin-bottom: 20px; font-size: 14px;">Please Enter Details</p>
 
+            <label for="email" style="margin-bottom: 2px;">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter Your Email" "><br><br>
+
+            <label for=" pwd" style="margin-bottom: 20px;">Password</label><br>
+            <input type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
+
+            <br>
+            <button class="btn" id="signup" onclick="register()" style="background: rgb(28, 26, 26); color: aliceblue; ">Sign Up</button><br>
+
+
+        </div>
+
+        <img id="bgimg"  src="/Images/contactUs-illu.svg" alt="bg_img">
+    </section>
 
     <footer class="border">
         <div class="footerContent">
@@ -80,6 +101,12 @@
         </div>
     </footer>
 
-</body>
+   
 
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js" ></script>
+    <script src="https://www.gstatic.com/firebasejs/9.11.0/firebase-database.js"></script>
+    <script src="/JavaScript Files/login.js"></script>
+</body>
 </html>
