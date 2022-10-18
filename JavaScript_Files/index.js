@@ -142,11 +142,11 @@ function search() {
         };
 
 
-        function login(){
-            console.log("hello")
-            const signin = document.getElementById('signInBtn');
-            const logout = document.getElementById('logout');
+        // function login(){
+        //     console.log("hello")
+        //     const signin = document.getElementById('signInBtn');
+        //     const logout = document.getElementById('logout');
 
-            signin.style.display="none";
-            logout.style.display="content";
-        }
+        //     signin.style.display="none";
+        //     logout.style.display="content";
+        // }
