@@ -54,7 +54,7 @@ a{
     padding: 10px 0;
 }
 
-#email, #pwd{
+#email, #pwd, #email1, #pwd1{
     border-radius: 5px;
     font-size: 12px;
     padding-left: 10px;

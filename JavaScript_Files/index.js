@@ -107,3 +107,46 @@ function search() {
         document.querySelector('.video-output').style.display = "none"
     }
 }
+
+
+        let monthly = false;
+        let annually = true;
+        function Price_change() {
+
+
+            if (annually) {
+                monthly = true;
+                annually = false;
+                document.querySelector(".Price_Personal").innerHTML = "$12";
+                document.querySelector(".Price_Professional").innerHTML = "$19";
+                document.querySelector(".Price_Group").innerHTML = "$39";
+
+                document.querySelector(".price_year_personal").innerHTML = "$144 billed annually. Save $24.";
+                document.querySelector(".price_year_professional").innerHTML = "$228 billed annually. Save $24.";
+                document.querySelector(".price_year_group").innerHTML = "$468 billed annually. Save $24.";
+            }
+
+            else{
+                monthly = false;
+                annually = true;
+                document.querySelector(".Price_Personal").innerHTML = "$14";
+                document.querySelector(".Price_Professional").innerHTML = "$22";
+                document.querySelector(".Price_Group").innerHTML = "$45";
+
+                document.querySelector(".price_year_personal").innerHTML = "$168 per year. Billed monthly.";
+                document.querySelector(".price_year_professional").innerHTML = "$264 per year. Billed monthly..";
+                document.querySelector(".price_year_group").innerHTML = "$540 per year. Billed monthly.";
+            }
+
+
+        };
+
+
+        function login(){
+            console.log("hello")
+            const signin = document.getElementById('signInBtn');
+            const logout = document.getElementById('logout');
+
+            signin.style.display="none";
+            logout.style.display="content";
+        }

@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS Files/style.css">
-    <link rel="stylesheet" href="./CSS Files/pricing.css">
+    <link rel="stylesheet" href="./CSS_Files/style.css">
+    <link rel="stylesheet" href="./CSS_Files/pricing.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <title> Feynman Innovations Pvt. Ltd.</title>
 </head>
@@ -22,8 +21,8 @@
             <a href="./index.html"> <span class="nav-items">Home</span> </a>
             <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
             <a href="#pricing"> <span class="nav-items">Pricing</span> </a>
-            <a href="./HTML Files/login.html" id="signInBtn"> <span class="nav-items">SignIn</span> </a>
-
+            <a href="../HTML_Files/login.html" id="signInBtn"> <span class="nav-items">Log In</span> </a>
+            <a href="" id="logout">Log out</a>
         </div>
 
         <img id="ham" src="./Images/menu.svg" alt="hambuger">
@@ -220,13 +219,13 @@
                 <h2>CONTACT US</h2>
                 <form action="" class="conatctUsForm ">
 
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <textarea type="text" placeholder="Comment Here"></textarea>
+                    <input type="text" id="name" placeholder="Name">
+                    <input type="email" id="email" placeholder="Email">
+                    <textarea type="text" id="text" placeholder="Comment Here"></textarea>
 
                 </form>
             </div>
-            <button class="learnMore-btn">Submit</button>
+            <button class="submit" id="submit-btn">Submit</button>
         </div>
 
     </section>
@@ -246,40 +245,59 @@
         </div>
     </footer>
 
-    <script src="./JavaScript Files/index.js"></script>
-    <script>
-        let monthly = false;
-        let annually = true;
-        function Price_change() {
+    <script src="./JavaScript_Files/index.js"></script>
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCk1WBSSC7TDHt-PscckKwPLsO-KpsWeuA",
+        authDomain: "login-auth-a4895.firebaseapp.com",
+        projectId: "login-auth-a4895",
+        storageBucket: "login-auth-a4895.appspot.com",
+        messagingSenderId: "488435744810",
+        appId: "1:488435744810:web:97f4cd598a461001e4c353"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // console.log(app);
+    import {getDatabase,ref,set} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+    const db = getDatabase();
+
+    var name = document.getElementById("name");
+    var email = document.getElementById("email");
+    var text = document.getElementById("text");
+
+    var submit = document.getElementById("submit-btn");
 
 
-            if (annually) {
-                monthly = true;
-                annually = false;
-                document.querySelector(".Price_Personal").innerHTML = "$12";
-                document.querySelector(".Price_Professional").innerHTML = "$19";
-                document.querySelector(".Price_Group").innerHTML = "$39";
+    function InsertData(){
+        set(ref(db,"TheUsers/"+name.value),{
+            name:name.value,
+            email:email.value,
+            text:text.value,
 
-                document.querySelector(".price_year_personal").innerHTML = "$144 billed annually. Save $24.";
-                document.querySelector(".price_year_professional").innerHTML = "$228 billed annually. Save $24.";
-                document.querySelector(".price_year_group").innerHTML = "$468 billed annually. Save $24.";
-            }
+        })
+        .then(()=>{
+            alert("Message Sent Successfully !");
+        })
+        .catch((error)=>{
+            alert("Unsuccessful,error"+error);
+        });
+    }
 
-            else{
-                monthly = false;
-                annually = true;
-                document.querySelector(".Price_Personal").innerHTML = "$14";
-                document.querySelector(".Price_Professional").innerHTML = "$22";
-                document.querySelector(".Price_Group").innerHTML = "$45";
+    submit.addEventListener('click',InsertData);
 
-                document.querySelector(".price_year_personal").innerHTML = "$168 per year. Billed monthly.";
-                document.querySelector(".price_year_professional").innerHTML = "$264 per year. Billed monthly..";
-                document.querySelector(".price_year_group").innerHTML = "$540 per year. Billed monthly.";
-            }
-
-
-        };
     </script>
+
 </body>
 
 </html>

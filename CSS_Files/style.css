@@ -32,7 +32,13 @@ header {
     height: 30px;
 }
 
+#logout{
+    display: none;
+}
 
+#signInBtn{
+    display: contents;
+}
 
 .navbar> a {
     padding: 10px;
@@ -212,7 +218,7 @@ header {
     font-size: 42px;
 }
 
-.learnMore-btn {
+.learnMore-btn , .submit{
     padding: 10px 15px;
     font-weight: 500;
     border: none;
