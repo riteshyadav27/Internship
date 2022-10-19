@@ -29,11 +29,17 @@
             <p style="color: rgb(95, 104, 104);margin-top: 2px; margin-bottom: 20px; font-size: 14px;">Please Enter
                 Details</p>
 
+            <label for="name" style="margin-bottom: 2px;">Name</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter Your Name"><br><br>
+
             <label for="email" style="margin-bottom: 2px;">Email</label><br>
             <input type="email" id="email" name="email" placeholder="Enter Your Email" "><br><br>
 
             <label for=" pwd" style="margin-bottom: 20px;">Password</label><br>
             <input type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
+
+            <label for=" pwd" style="margin-bottom: 20px;">Confirm Password</label><br>
+            <input type="password" id="cnf-pwd" name="password" placeholder="Confirm Password"><br><br>
 
             <br>
             <button class="btn" id="signup" style="background: rgb(28, 26, 26); color: aliceblue; ">Sign Up</button><br>
@@ -58,91 +64,53 @@
         </div>
     </footer>
 </body>
+
+<script type="module" src="../JavaScript_Files/login.js"></script>
+
 <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyCk1WBSSC7TDHt-PscckKwPLsO-KpsWeuA",
-        authDomain: "login-auth-a4895.firebaseapp.com",
-        projectId: "login-auth-a4895",
-        storageBucket: "login-auth-a4895.appspot.com",
-        messagingSenderId: "488435744810",
-        appId: "1:488435744810:web:97f4cd598a461001e4c353"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    // console.log(app);
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
     const auth = getAuth();
-
+    const db = getDatabase();
     //----- New Registration code start	  
     document.getElementById("signup").addEventListener("click", function () {
+
+        var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
         var password = document.getElementById("pwd").value;
-        //For new registration
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                alert("Registration successfully!!");
-                window.location.href = "../HTML_Files/login.html";
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-                console.log(errorMessage);
-                alert(error);
-            });
+        var cnf_password = document.getElementById("cnf-pwd").value;
+
+        if (password == cnf_password) {
+
+            //For new registration
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user);
+                    alert("Registration successfully!!");
+                    window.location.href = "../HTML_Files/login.html";
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                    console.log(errorMessage);
+                    alert(error);
+                });
+        }
+
+        else {
+
+            alert("password don't match")
+
+        }
+
     });
-    //----- End
-
-    // //----- Login code start	  
-    // document.getElementById("login").addEventListener("click", function () {
-    //     var email = document.getElementById("email1").value;
-    //     var password = document.getElementById("pwd1").value;
-
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             // Signed in 
-    //             const user = userCredential.user;
-    //             console.log(user);
-    //             alert(user.email + " Login successfully!!!");
-    //             document.getElementById('logout').style.display = 'block';
-    //             // ...
-    //         })
-    //         .catch((error) => {
-    //             const errorCode = error.code;
-    //             const errorMessage = error.message;
-    //             console.log(errorMessage);
-    //             alert(errorMessage);
-    //         });
-    // });
-    // //----- End
-
-    // //----- Logout code start	  
-    // document.getElementById("logout").addEventListener("click", function () {
-    //     signOut(auth).then(() => {
-    //         // Sign-out successful.
-    //         console.log('Sign-out successful.');
-    //         alert('Sign-out successful.');
-    //         document.getElementById('logout').style.display = 'none';
-    //     }).catch((error) => {
-    //         // An error happened.
-    //         console.log('An error happened.');
-    //     });
-    // });
 
 
-      
 </script>
 
 </html>

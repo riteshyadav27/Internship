@@ -15,28 +15,29 @@
 <body>
 
     <header class="">
-        <a href="./index.html"><span class="comp-name" >Feynman Innovations Pvt. Ltd.</span></a>
+        <a href="./index.html"><span class="comp-name">Feynman Innovations Pvt. Ltd.</span></a>
         <div class="navbar ">
 
             <a href="./index.html"> <span class="nav-items">Home</span> </a>
-            <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
             <a href="#pricing"> <span class="nav-items">Pricing</span> </a>
-            <a href="../HTML_Files/login.html" id="signInBtn"> <span class="nav-items">Log In</span> </a>
-            <a href="" id="logout">Log out</a>
+            <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
+            <a href="#conatctUs"> <span class="nav-items">Contact Us</span> </a>
+            <a> <span class="nav-items" value="Log in" id="signInBtn"> Log in </span> </a>
         </div>
 
         <img id="ham" src="./Images/menu.svg" alt="hambuger">
 
         <div class="sidemenu">
             <div class="sidebar border">
-    
+
                 <img id="ham-cross" src="./Images/x.svg" alt="cross">
-    
+
                 <a href=""> <span class="nav-items">Home</span> </a>
-                <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
                 <a href="#pricing"> <span class="nav-items">Pricing</span> </a>
+                <a href="#aboutUs"> <span class="nav-items">About us</span> </a>
+                <a href="#conatctUs"> <span class="nav-items">Contact Us</span> </a>
                 <a href="./HTML_Files/login.html"> <span class="nav-items">SignIn</span> </a>
-    
+
             </div>
         </div>
 
@@ -56,9 +57,9 @@
 
             <div class="search-bar">
                 <img src="./Images/search.svg" alt="search">
-                <input type="search" name=""  id="search-bar" placeholder="serach here ...">
+                <input type="search" name="" id="search-bar" placeholder="serach here ...">
             </div>
-            <button id="getAns" onclick="search()" >Get Answers</button>
+            <button id="getAns" onclick="search()">Get Answers</button>
 
             <div class="sub-nav ">
 
@@ -130,19 +131,19 @@
     <section class="pricing-section" id="pricing">
 
         <h1 style="text-align:center; font-size:69px; margin: 0px;">Pricing</h1>
-    
+
         <p style="text-align:center; font-size: 18px;">Monthly
-    
+
             <label class="switch">
                 <input type="checkbox" onclick="Price_change()">
                 <span class="slider round"></span>
             </label>
-    
+
             Annually
         </p>
-    
+
         <br>
-    
+
         <div class="container">
             <div class="personal">
                 <p style="font-size: 24px;">Personal</p>
@@ -154,15 +155,17 @@
                 <li><img src="./Images/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>SSL Certificate Included</span></li>
                 <br>
-                <button class="btn">Start Free<img src="./Images/arrow-right.svg" alt="" style="margin-left: 5px;"></button>
-    
+                <button class="btn">Start Free<img src="./Images/arrow-right.svg" alt=""
+                        style="margin-left: 5px;"></button>
+
                 <p class="price_year_personal" style="color: gray;">$168 per year. Billed monthly.</p>
             </div>
-    
-    
+
+
             <div class="personal">
                 <p style="font-size: 24px;">Professional</p>
-                <p style="font-size: 18px;"><b class="Price_Professional" style="font-size: 40px; font-weight:700;">$22</b>
+                <p style="font-size: 18px;"><b class="Price_Professional"
+                        style="font-size: 40px; font-weight:700;">$22</b>
                     /month</p>
                 <li><img src="./Images/check.svg" alt=""><span>1 Teammate</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>1 Project/Website</span></li>
@@ -170,15 +173,17 @@
                 <li><img src="./Images/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>SSL Certificate Included</span></li>
                 <br>
-                <button class="btn">Start Free<img src="./Images/arrow-right.svg" alt="" style="margin-left: 5px;"></button>
-    
+                <button class="btn">Start Free<img src="./Images/arrow-right.svg" alt=""
+                        style="margin-left: 5px;"></button>
+
                 <p class="price_year_professional" style="color: gray;">$264 per year. Billed monthly.</p>
             </div>
-    
-    
+
+
             <div class="personal">
                 <p style="font-size: 24px;">Group</p>
-                <p style="font-size: 18px;"><b class="Price_Group" style="font-size: 40px; font-weight:700;">$45</b> /month
+                <p style="font-size: 18px;"><b class="Price_Group" style="font-size: 40px; font-weight:700;">$45</b>
+                    /month
                 </p>
                 <li><img src="./Images/check.svg" alt=""><span>1 Teammate</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>1 Project/Website</span></li>
@@ -186,8 +191,9 @@
                 <li><img src="./Images/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>SSL Certificate Included</span></li>
                 <br>
-                <button class="btn">Start Free<img src="./Images/arrow-right.svg" alt="" style="margin-left: 5px;"></button>
-    
+                <button class="btn">Start Free<img src="./Images/arrow-right.svg" alt=""
+                        style="margin-left: 5px;"></button>
+
                 <p class="price_year_group" style="color: gray;">$540 per year. Billed monthly.</p>
             </div>
         </div>
@@ -210,7 +216,7 @@
 
     </section>
 
-    <section class="conatctUs ">
+    <section class="conatctUs " id="conatctUs">
 
         <img src="./Images/contactUs-illu.svg" class="aboutsUs-illu" alt="">
 
@@ -225,19 +231,19 @@
 
                 </form>
             </div>
-            <button class="submit" id="submit-btn">Submit</button>
+            <button class="submit" id="submit-btn" onclick="console.log('hello')">Submit</button>
         </div>
 
     </section>
 
-  
+
     <footer class="border">
         <div class="footerContent">
             <hr>
             <p>Contact us on <a href="">sva[at]feynmaninnovations[dot]in</a> for Licensing and suggestions</p>
             <p><a href="">© Feynman Innovations Pvt. Ltd.</a></p>
             <p>450 xyz, East Mumbai, Mumbai, 110220, India</p>
-            
+
         </div>
 
         <div class="footerContent2">
@@ -245,8 +251,30 @@
         </div>
     </footer>
 
+    <script>
+        let btn = document.getElementById("signInBtn")
+
+        if (localStorage.getItem("user")) {
+            btn.innerHTML = "Log out"
+            btn.value = "Log out"
+        }
+
+        btn.addEventListener("click", () => {
+            if (btn.value == "Log out") {
+                console.log('Nice');
+                localStorage.clear()
+                location.reload()
+            }
+            else {
+                console.log("Not nice");
+                window.location.href = "../HTML_Files/login.html";
+            }
+        })
+
+    </script>
     <script src="./JavaScript_Files/index.js"></script>
-    
+    <script type="module" src="./JavaScript_Files/login.js"></script>
+
     <script type="module">
         // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
@@ -280,7 +308,7 @@
 
 
     function InsertData(){
-        set(ref(db,"TheUsers/"+name.value),{
+        set(ref(db,"Messages/"+name.value),{
             name:name.value,
             email:email.value,
             text:text.value,
@@ -297,6 +325,7 @@
     submit.addEventListener('click',InsertData);
 
     </script>
+
 
 </body>
 
