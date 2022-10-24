@@ -108,11 +108,12 @@
 
             // For new registration
             createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
+                .then(async (userCredential) => {
+                    await InsertData()
                     // Signed in 
                     const user = userCredential.user;
-                    console.log(user);
-                    alert("Registration successfully!!");
+                    // console.log(user);
+                    alert("Sign Up Successfull !!");
                     window.location.href = "../HTML_Files/login.html";
                     // ...
                 })
@@ -125,9 +126,8 @@
                 });
 
 
-
-            InsertData()
             function InsertData() {
+
 
                 set(ref(db, "Users/" + name), {
                     name,
@@ -139,7 +139,7 @@
 
                 })
                     .then(() => {
-                        alert("Message Sent Successfully !");
+                        return
                     })
                     .catch((error) => {
                         alert("Unsuccessful,error" + error);
