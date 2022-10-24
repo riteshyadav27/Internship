@@ -80,7 +80,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyCk1WBSSC7TDHt-PscckKwPLsO-KpsWeuA",
@@ -91,8 +91,11 @@
         appId: "1:488435744810:web:97f4cd598a461001e4c353"
     };
 
+
     const auth = getAuth();
     const db = getDatabase();
+
+
     //----- New Registration code start	  
     document.getElementById("signup").addEventListener("click", function () {
 
@@ -108,13 +111,24 @@
 
             // For new registration
             createUserWithEmailAndPassword(auth, email, password)
-                .then(async (userCredential) => {
-                    await InsertData()
+                .then((userCredential) => {
+                    const root = ref(db, "Users")
+                    const newRoot = push(root)
+                    
+                    set(newRoot, {
+                        name,
+                        email,
+                        password,
+                        comp_name,
+                        desgn,
+                        mobNo
+
+                    })
                     // Signed in 
                     const user = userCredential.user;
                     // console.log(user);
                     alert("Sign Up Successfull !!");
-                    window.location.href = "../HTML_Files/login.html";
+                    // window.location.href = "../HTML_Files/login.html";
                     // ...
                 })
                 .catch((error) => {
@@ -126,25 +140,6 @@
                 });
 
 
-            function InsertData() {
-
-
-                set(ref(db, "Users/" + name), {
-                    name,
-                    email,
-                    password,
-                    comp_name,
-                    desgn,
-                    mobNo
-
-                })
-                    .then(() => {
-                        return
-                    })
-                    .catch((error) => {
-                        alert("Unsuccessful,error" + error);
-                    });
-            }
 
         }
         else {
