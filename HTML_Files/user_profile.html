@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS_Files/user_prfile.css">
+    <link rel="stylesheet" href="/CSS_Files/user_profile.css">
     <link rel="stylesheet" href="/CSS_Files/style.css">
-    <title>Signup Page</title>
+    <title>User Profile</title>
 </head>
 
 <body>
@@ -24,6 +24,8 @@
     </header>
 
     <section class="container">
+        <img id="bgimg" src="/Images/signup.svg" alt="bg_img">
+
         <div class="userprofile">
             <h1 style="margin-bottom: 5px; font-size: 30px;">My Account </h1>
             <br>
@@ -32,30 +34,29 @@
             <input class="input" type="text" id="name" name="name" placeholder="Your Name"><br><br>
             
             <label for="name" style="margin-bottom: 2px;">Company Name</label><br>
-            <input class="input" type="text" id="comp-name"  placeholder="Your Company Name"><br><br>
+            <input class="input" type="text" id="compname"  placeholder="Your Company Name"><br><br>
 
             <label for="name" style="margin-bottom: 2px;">Designation</label><br>
             <input class="input" type="text" id="designation"  placeholder="Your Designation"><br><br>
 
             <label for="name" style="margin-bottom: 2px;">Mobile No.</label><br>
-            <input class="input" type="tel" id="mob-no"  placeholder="Your Mobile No"><br><br>
+            <input class="input" type="tel" id="mobno"  placeholder="Your Mobile No"><br><br>
 
             <label for="email" style="margin-bottom: 2px;">Email</label><br>
             <input class="input" type="email" id="email" name="email" placeholder=" Your Email" "><br><br>
 
 
-            <label for=" pwd" style="margin-bottom: 20px;">subscription</label><br>
-            <input class="input" type="password" id="pwd" name="password" placeholder="subscription Details"><br><br>
+            <label for=" pwd" style="margin-bottom: 20px;">Password</label><br>
+            <input class="input" type="password" id="pwd" name="password" placeholder="Password"><br><br>
 
            
 
-            <br>
-            <button class="btn" id="signup" style="background: rgb(28, 26, 26); color: aliceblue; ">Logout</button><br>
+            <!-- <br>
+            <button class="btn" id="signup" style="background: rgb(28, 26, 26); color: aliceblue; ">Confirm Changes</button><br> -->
 
 
         </div>
 
-        <!-- <img id="bgimg" src="/Images/signup.svg" alt="bg_img"> -->
     </section>
 
     <footer class="border">
@@ -76,49 +77,34 @@
 <script type="module" src="../JavaScript_Files/login.js"></script>
 
 <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getDatabase, ref,get, child, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
     const auth = getAuth();
     const db = getDatabase();
-    //----- New Registration code start	  
-    document.getElementById("signup").addEventListener("click", function () {
 
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("pwd").value;
-        var cnf_password = document.getElementById("cnf-pwd").value;
+    const dbref = ref(db);
 
-        if (password == cnf_password) {
+       
+        var email = localStorage.getItem();
 
-            //For new registration
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    console.log(user);
-                    alert("Registration successfully!!");
-                    window.location.href = "../HTML_Files/login.html";
-                    // ...
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                    console.log(errorMessage);
-                    alert(error);
-                });
+        selectData();
+function selectData(){
+    get(child(dbref,"Users/"+email.value).then((snapshot)=>{
+        if(snapshot.exists()){
+            name.value = snapshot.val().name;
+            email.value= snapshot.val().email;
+            designation.value=snapshot.val().desgn;
+            pwd.value = snapshot.val().password;
+            mobno.value = snapshot.val().mobNo;
+            compname.value = snapshot.val().comp_name;
         }
-
-        else {
-
-            alert("password don't match")
-
+        else{
+            alert("No Data Find");
         }
-
-    });
-
-
+}))
+}
 </script>
 
 </html>
