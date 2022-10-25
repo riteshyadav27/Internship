@@ -112,7 +112,7 @@
             // For new registration
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    const root = ref(db, "Users")
+                    const root = ref(db, "Users/" + name)
                     const newRoot = push(root)
                     
                     set(newRoot, {
