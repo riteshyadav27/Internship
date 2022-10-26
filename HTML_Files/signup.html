@@ -117,25 +117,6 @@
         var desgn = document.getElementById("designation").value;
         var mobNo = document.getElementById("mob-no").value;
 
-        // let username = name.split(" ")[0]
-
-        // username = username + randomNo()  + ""
-        // firebase.database().ref('Users/').on('value', (snap) => {
-
-        //     console.log(snap.val());
-
-        //     for (const usernamesInDB in snap.val()) {
-                
-        //         if( usernamesInDB === username ){
-        //             username = ""
-        //             username = username + randomNo()  + ""
-        //         }
-                
-        //     }
-
-        // })
-
-
 
         if (name === "" || email === "" || comp_name === "" || desgn === "") {
             alert("Please Fill all necessary details")
@@ -168,7 +149,7 @@
                     })
 
 
-                    // window.location.href = "../HTML_Files/login.html";
+                    window.location.href = "../HTML_Files/user_profile.html";
                     // ...
                 })
                 .catch((error) => {

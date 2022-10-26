@@ -72,36 +72,47 @@
             <p><a href="">Terms and Condition</a> <a href="">Privacy Policy</a></p>
         </div>
     </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCk1WBSSC7TDHt-PscckKwPLsO-KpsWeuA",
+            authDomain: "login-auth-a4895.firebaseapp.com",
+            databaseURL: "https://login-auth-a4895-default-rtdb.firebaseio.com",
+            projectId: "login-auth-a4895",
+            storageBucket: "login-auth-a4895.appspot.com",
+            messagingSenderId: "488435744810",
+            appId: "1:488435744810:web:97f4cd598a461001e4c353"
+        };
+
+
+
+        firebase.initializeApp(firebaseConfig)
+
+        firebase.database().ref('Users/').on('value', (snap) => {
+            for (const id in snap.val()) {
+                if (id === localStorage.getItem("UID")) {
+                    const username = snap.val()[id]
+                    console.log(Object.values(username)[0])
+                    var name = document.getElementById("pr-name").value = Object.values(username)[0].name;
+                    var email = document.getElementById("pr-email").value = Object.values(username)[0].email;
+                    var comp_name = document.getElementById("pr-compname").value = Object.values(username)[0].comp_name;
+                    var desgn = document.getElementById("pr-designation").value = Object.values(username)[0].desgn;
+                    var mobNo = document.getElementById("pr-mobno").value = Object.values(username)[0].mobNo;
+                }
+            }
+        })
+
+    </script>
 </body>
 
-<script type="module" src="../JavaScript_Files/login.js"></script>
 
-<script type="module">
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    import { getDatabase, ref, get, child, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-    const auth = getAuth();
-    const db = getDatabase();
-
-    const dbref = ref(db);
-
-    selectData();
-    function selectData() {
-        get(child(dbref, "Users/" + email.value).then((snapshot) => {
-            if (snapshot.exists()) {
-                name.value = snapshot.val().name;
-                email.value = snapshot.val().email;
-                designation.value = snapshot.val().desgn;
-                pwd.value = snapshot.val().password;
-                mobno.value = snapshot.val().mobNo;
-                compname.value = snapshot.val().comp_name;
-            }
-            else {
-                alert("No Data Find");
-            }
-        }))
-    }
-</script>
 
 </html>
