@@ -117,23 +117,23 @@
         var desgn = document.getElementById("designation").value;
         var mobNo = document.getElementById("mob-no").value;
 
-        let username = name.split(" ")[0]
+        // let username = name.split(" ")[0]
 
-        username = username + randomNo()  + ""
-        firebase.database().ref('Users/').on('value', (snap) => {
+        // username = username + randomNo()  + ""
+        // firebase.database().ref('Users/').on('value', (snap) => {
 
-            console.log(snap.val());
+        //     console.log(snap.val());
 
-            for (const usernamesInDB in snap.val()) {
+        //     for (const usernamesInDB in snap.val()) {
                 
-                if( usernamesInDB === username ){
-                    username = ""
-                    username = username + randomNo()  + ""
-                }
+        //         if( usernamesInDB === username ){
+        //             username = ""
+        //             username = username + randomNo()  + ""
+        //         }
                 
-            }
+        //     }
 
-        })
+        // })
 
 
 
@@ -149,9 +149,8 @@
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
 
-                    console.log(username);
 
-                    const root = ref(db, "Users/" + username)
+                    const root = ref(db, "Users/" + userCredential.user.uid)
                     const newRoot = push(root)
                     set(newRoot, {
                         name,
@@ -160,13 +159,14 @@
                         comp_name,
                         desgn,
                         mobNo
-
+                        
+                    }).then(()=>{
+                        localStorage.setItem("UID" ,userCredential.user.uid )
+                        alert("Sign Up Successfull !!");
+                    }).catch((e)=>{
+                        alert(e)
                     })
-                    // Signed in 
-                    const user = userCredential.user;
-                    // console.log(user);
 
-                    alert("Sign Up Successfull !!");
 
                     // window.location.href = "../HTML_Files/login.html";
                     // ...
