@@ -6,6 +6,10 @@ body{
     background: #f9f9f9;
 }
 
+.border{
+    border: 2px solid black;
+}
+
 .container{
     display: flex;
     justify-content:space-evenly;
@@ -17,18 +21,15 @@ body{
 }
 .userprofile{
     padding: 50px;
-    margin-right: 10%;
     border: none;
-    width: 40%; 
+    width: 80%; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#bgimg{
-    width: 60vw;
-    height: 60vh;
-    position: relative;
-    /* top: 50%; */
-    /* transform: translateY(-90%); */
+.profile-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -52,7 +53,7 @@ a{
     font-size: 12px;
     padding-left: 10px;
     margin-top: 3px;
-    width: 100%;
+    width: 20%;
     height: 30px;
     outline: none;
 }

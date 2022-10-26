@@ -24,35 +24,35 @@
     </header>
 
     <section class="container">
-        <img id="bgimg" src="/Images/signup.svg" alt="bg_img">
+
 
         <div class="userprofile">
-            <h1 style="margin-bottom: 5px; font-size: 30px;">My Account </h1>
-            <br>
-           
-            <label for="name" style="margin-bottom: 2px;">Name</label><br>
-            <input class="input" type="text" id="name" name="name" placeholder="Your Name"><br><br>
-            
-            <label for="name" style="margin-bottom: 2px;">Company Name</label><br>
-            <input class="input" type="text" id="compname"  placeholder="Your Company Name"><br><br>
+            <h1 style="margin-bottom: 5px; font-size: 30px;">Personal details</h1>
 
-            <label for="name" style="margin-bottom: 2px;">Designation</label><br>
-            <input class="input" type="text" id="designation"  placeholder="Your Designation"><br><br>
+            <div class="profile-img border">
 
-            <label for="name" style="margin-bottom: 2px;">Mobile No.</label><br>
-            <input class="input" type="tel" id="mobno"  placeholder="Your Mobile No"><br><br>
+                <img src="../Images/avatar.png" alt="avatar" style="height: 160px; width:160px;">
+                <div>
 
-            <label for="email" style="margin-bottom: 2px;">Email</label><br>
-            <input class="input" type="email" id="email" name="email" placeholder=" Your Email" "><br><br>
+                    <label for="name" style="margin-bottom: 2px;">Name</label>
+                    <input class="input" value="" type="text" id="pr-name"><br>
+                </div>
+            </div>
+
+            <label for="name" style="margin-bottom: 2px;">Company Name</label>
+            <input class="input" value="" type="text" id="pr-compname"><br>
+
+            <label for="name" style="margin-bottom: 2px;">Designation</label>
+            <input class="input" value="" type="text" id="pr-designation"><br>
+
+            <label for="name" style="margin-bottom: 2px;">Mobile No.</label>
+            <input class="input" value="" type="tel" id="pr-mobno"><br>
+
+            <label for="email" style="margin-bottom: 2px;">Email</label>
+            <input class="input" value="" type="email" id="pr-email"><br>
 
 
-            <label for=" pwd" style="margin-bottom: 20px;">Password</label><br>
-            <input class="input" type="password" id="pwd" name="password" placeholder="Password"><br><br>
 
-           
-
-            <!-- <br>
-            <button class="btn" id="signup" style="background: rgb(28, 26, 26); color: aliceblue; ">Confirm Changes</button><br> -->
 
 
         </div>
@@ -77,34 +77,31 @@
 <script type="module" src="../JavaScript_Files/login.js"></script>
 
 <script type="module">
-    
+
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    import { getDatabase, ref,get, child, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getDatabase, ref, get, child, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
     const auth = getAuth();
     const db = getDatabase();
 
     const dbref = ref(db);
 
-       
-        var email = localStorage.getItem();
-
-        selectData();
-function selectData(){
-    get(child(dbref,"Users/"+email.value).then((snapshot)=>{
-        if(snapshot.exists()){
-            name.value = snapshot.val().name;
-            email.value= snapshot.val().email;
-            designation.value=snapshot.val().desgn;
-            pwd.value = snapshot.val().password;
-            mobno.value = snapshot.val().mobNo;
-            compname.value = snapshot.val().comp_name;
-        }
-        else{
-            alert("No Data Find");
-        }
-}))
-}
+    selectData();
+    function selectData() {
+        get(child(dbref, "Users/" + email.value).then((snapshot) => {
+            if (snapshot.exists()) {
+                name.value = snapshot.val().name;
+                email.value = snapshot.val().email;
+                designation.value = snapshot.val().desgn;
+                pwd.value = snapshot.val().password;
+                mobno.value = snapshot.val().mobNo;
+                compname.value = snapshot.val().comp_name;
+            }
+            else {
+                alert("No Data Find");
+            }
+        }))
+    }
 </script>
 
 </html>
