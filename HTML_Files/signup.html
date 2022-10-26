@@ -29,25 +29,25 @@
             <p style="color: rgb(95, 104, 104);margin-top: 2px; margin-bottom: 20px; font-size: 14px;">Please Enter
                 Details</p>
 
-            <label for="name" style="margin-bottom: 2px;">Name</label><br>
+            <label for="name" style="margin-bottom: 2px;">Name <b style="color: red;">*</b></label><br>
             <input class="input" type="text" id="name" name="name" placeholder="Enter Your Name"><br><br>
 
-            <label for="name" style="margin-bottom: 2px;">Company Name</label><br>
+            <label for="name" style="margin-bottom: 2px;">Company Name <b style="color: red;">*</b></label><br>
             <input class="input" type="text" id="comp-name" placeholder="Enter Your Company Name"><br><br>
 
-            <label for="name" style="margin-bottom: 2px;">Designation</label><br>
+            <label for="name" style="margin-bottom: 2px;">Designation <b style="color: red;">*</b></label><br>
             <input class="input" type="text" id="designation" placeholder="Enter Your Designation"><br><br>
 
-            <label for="name" style="margin-bottom: 2px;">Mobile No.</label><br>
+            <label for="name" style="margin-bottom: 2px;">Mobile No. <b style="color: red;">*</b></label><br>
             <input class="input" type="tel" id="mob-no" placeholder="Enter Your Mobile No"><br><br>
 
-            <label for="email" style="margin-bottom: 2px;">Email</label><br>
+            <label for="email" style="margin-bottom: 2px;">Email <b style="color: red;">*</b></label><br>
             <input class="input" type="email" id="email" name="email" placeholder="Enter Your Email" "><br><br>
 
-            <label for=" pwd" style="margin-bottom: 20px;">Password</label><br>
+            <label for=" pwd" style="margin-bottom: 20px;">Password <b style="color: red;">*</b></label><br>
             <input class="input" type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
 
-            <label for=" pwd" style="margin-bottom: 20px;">Confirm Password</label><br>
+            <label for=" pwd" style="margin-bottom: 20px;">Confirm Password <b style="color: red;">*</b></label><br>
             <input class="input" type="password" id="cnf-pwd" name="password" placeholder="Confirm Password"><br><br>
 
             <br>
@@ -108,6 +108,13 @@
         var desgn = document.getElementById("designation").value;
         var mobNo = document.getElementById("mob-no").value;
 
+        console.log( name === "" );
+
+        if( name === "" || email=== "" || comp_name=== ""|| desgn=== "" ){
+            alert("Please Fill all necessary details")
+        }
+        else{
+
         if (password == cnf_password) {
 
             // For new registration
@@ -146,6 +153,9 @@
         else {
             alert("Password don't match...Please Try Again")
         }
+
+    }
+
 
     });
 
