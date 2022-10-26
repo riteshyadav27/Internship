@@ -126,15 +126,14 @@
                     })
                     // Signed in 
                     const user = userCredential.user;
-                    // console.log(user);
+                    console.log(user);
                     alert("Sign Up Successfull !!");
-                    // window.location.href = "./HTML_Files/login.html";
+                     window.location.href = "./login.html";
                     // ...
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // ..
                     console.log(errorMessage);
                     alert(error);
                 });
