@@ -35,7 +35,7 @@
                 console.log(user);
                 alert(user.email + " Login successfully!!!");
                 // login();
-                window.location.href = "./user_profile.html";
+                window.location.href = "/index.html";
                 showSession()
                 // ...
             })
