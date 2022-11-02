@@ -7,13 +7,13 @@
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
-        apiKey: "AIzaSyBNnBPvXtHrQY_QzrWXLU_7kk-i7AF6fG0",
-        authDomain: "feynmaninnovations-dfbe0.firebaseapp.com",
-        databaseURL: "https://feynmaninnovations-dfbe0-default-rtdb.firebaseio.com",
-        projectId: "feynmaninnovations-dfbe0",
-        storageBucket: "feynmaninnovations-dfbe0.appspot.com",
-        messagingSenderId: "120656031568",
-        appId: "1:120656031568:web:e4e1215a99c31ff5d1c655"
+        apiKey: "AIzaSyCk1WBSSC7TDHt-PscckKwPLsO-KpsWeuA",
+        authDomain: "login-auth-a4895.firebaseapp.com",
+        databaseURL: "https://login-auth-a4895-default-rtdb.firebaseio.com",
+        projectId: "login-auth-a4895",
+        storageBucket: "login-auth-a4895.appspot.com",
+        messagingSenderId: "488435744810",
+        appId: "1:488435744810:web:97f4cd598a461001e4c353"
       };
 
     // Initialize Firebase
