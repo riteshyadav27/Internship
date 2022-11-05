@@ -42,8 +42,9 @@
             <input class="input" type="tel" id="mob-no" placeholder="Enter Your Mobile No"><br><br>
 
             <label for="email" style="margin-bottom: 2px;">Email <b style="color: red;">*</b></label><br>
-            <input class="input" type="email" id="email" name="email" placeholder="Enter Your Email" "><br><br>
-
+            <input class="input" type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required id="email" name="email" placeholder="Enter Your Email" "><br><br>
+            
+            
             <label for=" pwd" style="margin-bottom: 20px;">Password <b style="color: red;">*</b></label><br>
             <input class="input" type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
 
@@ -82,7 +83,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-    import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getDatabase, ref, set, push, child, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
 
     const firebaseConfig = {
@@ -95,13 +96,13 @@
         appId: "1:488435744810:web:97f4cd598a461001e4c353"
     };
 
-    firebase.initializeApp(firebaseConfig)
+    
     const auth = getAuth();
     const db = getDatabase();
 
 
     //----- New Registration code start	  
-    document.getElementById("signup").addEventListener("click", async function () {
+    document.getElementById("signup").addEventListener("click", ()=>{
 
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
@@ -120,27 +121,26 @@
 
             if (password === cnf_password) {
 
+                const userId = push(child(ref(db), 'Users')).key;
+                
+                set(ref(db,'Users/' + userId), {
+                    name,
+                    email,
+                    password,
+                    comp_name,
+                    desgn,
+                    mobNo
+
+                }).then(() => {
+                    localStorage.setItem("UID", userId)
+                    alert("Sign Up Successfull !!");
+                }).catch((e) => {
+                    alert(e)
+                })
                 // For new registration
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
-
-                        const root = ref(db, "Users/" + userCredential.user.uid)
-                        const newRoot = push(root)
-                        set(newRoot, {
-                            name,
-                            email,
-                            password,
-                            comp_name,
-                            desgn,
-                            mobNo
-
-                        }).then(() => {
-                            localStorage.setItem("UID", userCredential.user.uid)
-                            alert("Sign Up Successfull !!");
-                        }).catch((e) => {
-                            alert(e)
-                        })
-
+                        
                         window.location.href = "../HTML_Files/login.html";
 
                     })

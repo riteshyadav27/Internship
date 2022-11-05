@@ -11,7 +11,6 @@ body{
     justify-content:space-evenly;
     align-items: center;
     overflow: hidden;
-    margin-left: 10%;
 }
 .login{
     padding: 50px;
@@ -25,8 +24,7 @@ body{
     width: 60vw;
     height: 60vh;
     position: relative;
-    /* top: 50%; */
-    /* transform: translateY(-90%); */
+    display: none;
 }
 
 
