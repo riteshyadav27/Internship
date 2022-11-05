@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS_Files/user_profile.css">
-    <link rel="stylesheet" href="/CSS_Files/style.css">
-    <title>User Profile</title>
+    <title>Profile</title>
+    <link rel="stylesheet" href="../CSS_Files/user_profile.css">
+    <link rel="stylesheet" href="../CSS_Files/style.css">
 </head>
-
 <body>
     <header class="">
         <a href="/index.html"><span class="comp-name">Feynman Innovations Pvt. Ltd.</span></a>
@@ -24,39 +22,35 @@
     </header>
 
     <section class="container">
+        <img id="bgimg" src="/Images/signup.svg" alt="bg_img">
 
+        <div class="signup" id ="profile">
+            <h1 style="margin-bottom: 5px; font-size: 30px;">Personal Details</h1>
+            <br>
 
-        <div class="userprofile">
-            <h1 style="margin-bottom: 5px; font-size: 30px;">Personal details</h1>
+            <label for="name" style="margin-bottom: 2px;">Name</label><br>
+            <input class="input" value="" type="text" id="name" name="name"><br><br>
 
-            <div class="profile-img border">
+            <label for="name" style="margin-bottom: 2px;">Company Name</label><br>
+            <input class="input" value="" type="text" id="comp-name"><br><br>
 
-                <img src="../Images/avatar.png" alt="avatar" style="height: 160px; width:160px;">
-                <div>
+            <label for="name" style="margin-bottom: 2px;">Designation</label><br>
+            <input class="input" value="" type="text" id="designation" ><br><br>
 
-                    <label for="name" style="margin-bottom: 2px;">Name</label>
-                    <input class="input" value="" type="text" id="pr-name"><br>
-                </div>
-            </div>
+            <label for="name" style="margin-bottom: 2px;">Mobile No.</label><br>
+            <input class="input" value="" type="tel" id="mob-no"><br><br>
 
-            <label for="name" style="margin-bottom: 2px;">Company Name</label>
-            <input class="input" value="" type="text" id="pr-compname"><br>
-
-            <label for="name" style="margin-bottom: 2px;">Designation</label>
-            <input class="input" value="" type="text" id="pr-designation"><br>
-
-            <label for="name" style="margin-bottom: 2px;">Mobile No.</label>
-            <input class="input" value="" type="tel" id="pr-mobno"><br>
-
-            <label for="email" style="margin-bottom: 2px;">Email</label>
-            <input class="input" value="" type="email" id="pr-email"><br>
-
-
-
+            <label for="email" style="margin-bottom: 2px;">Email</label><br>
+            <input class="input" value="" type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required id="email" name="email"><br><br>
+            
+            
+            <label for=" pwd" style="margin-bottom: 20px;">Password</label><br>
+            <input class="input"value="" type="password" id="pwd" name="password"><br><br>
 
 
         </div>
 
+       
     </section>
 
     <footer class="border">
@@ -72,47 +66,44 @@
             <p><a href="">Terms and Condition</a> <a href="">Privacy Policy</a></p>
         </div>
     </footer>
-
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script type="module">
-
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-        import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-
-
-        const firebaseConfig = {
-        apiKey: "AIzaSyBNnBPvXtHrQY_QzrWXLU_7kk-i7AF6fG0",
-        authDomain: "feynmaninnovations-dfbe0.firebaseapp.com",
-        databaseURL: "https://feynmaninnovations-dfbe0-default-rtdb.firebaseio.com",
-        projectId: "feynmaninnovations-dfbe0",
-        storageBucket: "feynmaninnovations-dfbe0.appspot.com",
-        messagingSenderId: "120656031568",
-        appId: "1:120656031568:web:e4e1215a99c31ff5d1c655"
-    };
-
-
-
-        firebase.initializeApp(firebaseConfig)
-
-        firebase.database().ref('Users/').on('value', (snap) => {
-            for (const id in snap.val()) {
-                if (id === localStorage.getItem("UID")) {
-                    const username = snap.val()[id]
-                    console.log(Object.values(username)[0])
-                    var name = document.getElementById("pr-name").value = Object.values(username)[0].name;
-                    var email = document.getElementById("pr-email").value = Object.values(username)[0].email;
-                    var comp_name = document.getElementById("pr-compname").value = Object.values(username)[0].comp_name;
-                    var desgn = document.getElementById("pr-designation").value = Object.values(username)[0].desgn;
-                    var mobNo = document.getElementById("pr-mobno").value = Object.values(username)[0].mobNo;
-                }
-            }
-        })
-
-    </script>
 </body>
 
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getDatabase, ref, set, push, child, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyCk1WBSSC7TDHt-PscckKwPLsO-KpsWeuA",
+        authDomain: "login-auth-a4895.firebaseapp.com",
+        databaseURL: "https://login-auth-a4895-default-rtdb.firebaseio.com",
+        projectId: "login-auth-a4895",
+        storageBucket: "login-auth-a4895.appspot.com",
+        messagingSenderId: "488435744810",
+        appId: "1:488435744810:web:97f4cd598a461001e4c353"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    document.getElementById("profile").onload=myFunction()
+
+    function myFunction(){
+    console.log('hello');
+    firebase.database().ref('Users/'+ '-NG56WU7duQT0eYRx3m0' ).on('value',function(snapshot){
+        
+        console.log(snapshot.val())
+        document.getElementById('name').value=snapshot.val().name;
+        document.getElementById('email').value=snapshot.val().email;
+        document.getElementById('comp-name').value=snapshot.val().comp_name;
+        document.getElementById('mob-no').value=snapshot.val().mobNo;
+        document.getElementById('pwd').value=snapshot.val().password;
+        document.getElementById('designation').value=snapshot.val().desgn;
+    })
+    }
+
+</script>
 </html>
