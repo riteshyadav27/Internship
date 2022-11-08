@@ -38,12 +38,18 @@
             <label for="name" style="margin-bottom: 2px;">Designation <b style="color: red;">*</b></label><br>
             <input class="input" type="text" id="designation" placeholder="Enter Your Designation"><br><br>
 
-            <label for="name" style="margin-bottom: 2px;">Mobile No. <b style="color: red;">*</b></label><br>
-            <input class="input" type="tel" id="mob-no" placeholder="Enter Your Mobile No"><br><br>
+        <form id="form1" action="#">
 
+            <label for="name" style="margin-bottom: 2px;">Mobile No. <b style="color: red;">*</b></label><br>
+            <input class="input" type="text" id="mob-no" placeholder="Enter Your Mobile No" onkeydown="mobile_validation()"><br><br>
+            <span id="text1"></span>
+        </form>
+
+        <form id="form" action="#">
             <label for="email" style="margin-bottom: 2px;">Email <b style="color: red;">*</b></label><br>
-            <input class="input" type="email" id="email" name="email" placeholder="Enter Your Email"><br><br>
-            
+            <input class="input" type="text" id="email" name="email" placeholder="Enter Your Email" onkeydown="validation()"><br><br>
+            <span id="text" ></span>
+        </form>
             
             <label for=" pwd" style="margin-bottom: 20px;">Password <b style="color: red;">*</b></label><br>
             <input class="input" type="password" id="pwd" name="password" placeholder="Enter Password"><br><br>
@@ -56,7 +62,6 @@
 
 
         </div>
-
         <img id="bgimg" src="/Images/signup.svg" alt="bg_img">
     </section>
 
@@ -74,7 +79,67 @@
         </div>
     </footer>
 </body>
+<script>
+    function validation(){
+        var form =document.getElementById("form")
+        var mail =document.getElementById("email").value;
+        var text =document.getElementById("text");
+ 
+        var pattern =/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
+       if(mail.match(pattern)){
+           form.classList.add("valid");
+            form.classList.remove("invalid");
+            text.innerHTML = "";
+            text.style.color= "#0000CD";
+        }
+        else{
+          
+            form.classList.remove("valid");
+            form.classList.add("invalid");
+            text.innerHTML = "please enter vaild email address";
+            text.style.color= "#ff0000";
+        }
+
+        if(mail==""){
+           form.classList.remove("valid");
+            form.classList.remove("invalid");
+            text.innerHTML = "";
+            text.style.color= "#0000CD";
+        }
+
+    };      
+    function mobile_validation()
+    {
+        var form =document.getElementById("form1")
+        var mob =document.getElementById("mob-no").value;
+        var text1 =document.getElementById("text1");
+ 
+        var pattern1 = /^[6-9]\d{9}$/gi;
+
+       if(mob.match(pattern1)){
+            form.classList.add("valid");
+            form.classList.remove("invalid");
+            text1.innerHTML = "";
+            text1.style.color= "#0000CD";
+        }
+        else
+        {
+            form.classList.remove("valid");
+            form.classList.add("invalid");
+            text1.innerHTML = "please enter vaild mobile number";
+            text1.style.color= "#ff0000";
+        }
+
+        if(mob ==""){
+           form.classList.remove("valid");
+            form.classList.remove("invalid");
+            text1.innerHTML = "";
+            text1.style.color= "#0000CD";
+        }
+
+    }       
+</script>
 <script type="module" src="../JavaScript_Files/login.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -154,7 +219,6 @@
             }
 
         }
-
 
     });
 
