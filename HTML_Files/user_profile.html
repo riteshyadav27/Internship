@@ -70,7 +70,7 @@
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
+<script src="../JavaScript_Files/login.js"></script>
 <script type="module">
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
@@ -93,7 +93,8 @@
 
     function myFunction(){
     console.log('hello');
-    firebase.database().ref('Users/'+ '-NG56WU7duQT0eYRx3m0' ).on('value',function(snapshot){
+    var mobNo = localStorage.getItem('mob')
+    firebase.database().ref('Users/'+ mobNo ).on('value',function(snapshot){
         
         console.log(snapshot.val())
         document.getElementById('name').value=snapshot.val().name;

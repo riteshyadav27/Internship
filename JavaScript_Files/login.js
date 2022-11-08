@@ -25,8 +25,10 @@ const db = getDatabase();
 
 document.getElementById("login").addEventListener("click", function () {
   var email = document.getElementById("email1").value;
+  var mobNo = document.getElementById("mobNo1").value;
+  localStorage.setItem('mob',mobNo);
   var password = document.getElementById("pwd1").value;
-
+  
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
@@ -34,7 +36,7 @@ document.getElementById("login").addEventListener("click", function () {
 
       localStorage.setItem('user', JSON.stringify(user))
       console.log(user);
-      localStorage.setItem('UID',user.uid)
+
       alert(user.email + " Login successfully!!!");
       // login();
       window.location.href = "../HTML_Files/user_profile.html";

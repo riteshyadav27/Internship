@@ -120,10 +120,8 @@
         else {
 
             if (password === cnf_password) {
-
-                const userId = push(child(ref(db), 'Users')).key;
                 
-                set(ref(db,'Users/' + userId), {
+                set(ref(db,'Users/' + mobNo), {
                     name,
                     email,
                     password,
@@ -132,7 +130,6 @@
                     mobNo
 
                 }).then(() => {
-                    localStorage.setItem("UID", userId)
                     alert("Sign Up Successfull !!");
                 }).catch((e) => {
                     alert(e)
