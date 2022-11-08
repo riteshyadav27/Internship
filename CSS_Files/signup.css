@@ -79,3 +79,25 @@ a{
         width: 75%;
     }
 }
+ #text
+ {
+    display: block;
+    color: #000;
+    font-size: small;
+    font-weight: 500;
+    /* font-style: ; */
+    padding: 5px;
+    margin-top: -25px;
+
+
+ }
+ #text1
+ {
+    display: block;
+    color: #000;
+    font-size: small;
+    font-weight: 500;
+    /* font-style: ; */
+    padding: 5px;
+    margin-top: -25px;
+ }
