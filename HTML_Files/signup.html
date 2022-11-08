@@ -115,7 +115,7 @@
         var mob =document.getElementById("mob-no").value;
         var text1 =document.getElementById("text1");
  
-        var pattern1 = /^[6-9]\d{9}$/gi;
+        var pattern1 = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{8}$/;
 
        if(mob.match(pattern1)){
             form.classList.add("valid");
