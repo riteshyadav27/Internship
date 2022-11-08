@@ -120,7 +120,7 @@
         var mob =document.getElementById("mobNo1").value;
         var text1 =document.getElementById("text1");
  
-        var pattern1 = /^[6-9]\d{9}$/gi;
+        var pattern1 = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{8}$/;
 
        if(mob.match(pattern1)){
             form.classList.add("valid");
@@ -137,7 +137,7 @@
         }
 
         if(mob ==""){
-           form.classList.remove("valid");
+           form.classList.add("valid");
             form.classList.remove("invalid");
             text1.innerHTML = "";
             text1.style.color= "#0000CD";

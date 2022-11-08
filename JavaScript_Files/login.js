@@ -28,7 +28,10 @@ document.getElementById("login").addEventListener("click", function () {
   var mobNo = document.getElementById("mobNo1").value;
   localStorage.setItem('mob',mobNo);
   var password = document.getElementById("pwd1").value;
-  
+  if(mobNo === ""){
+    alert("Please Enter the Mobile No.")
+  }
+  else{
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
@@ -49,7 +52,9 @@ document.getElementById("login").addEventListener("click", function () {
       console.log(errorMessage);
       alert(errorMessage);
     });
+  }
 });
+
 
 function showSession() {
   console.log(localStorage.getItem("user"));

@@ -27,6 +27,9 @@ body{
     display: none;
 }
 
+form{
+    margin-bottom: 7px;
+}
 
 .f_pwd{
     display: flex;

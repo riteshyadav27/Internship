@@ -272,7 +272,7 @@
             if (btn.value == "Log out") {
                 console.log('Nice');
                 localStorage.clear()
-               alert('Successfully Log Out')
+                alert('Successfully Log Out')
                 location.reload()
             }
             else {
@@ -306,7 +306,7 @@
         const app = initializeApp(firebaseConfig);
 
         // console.log(app);
-        import {getDatabase,ref,set} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
         const db = getDatabase();
 
@@ -317,22 +317,22 @@
         var submit = document.getElementById("submit-btn");
 
 
-        function InsertData(){
-        set(ref(db,"Messages/"+name.value),{
-            name:name.value,
-            email:email.value,
-            text:text.value,
+        function InsertData() {
+            set(ref(db, "Messages/" + name.value), {
+                name: name.value,
+                email: email.value,
+                text: text.value,
 
-        })
-        .then(()=>{
-            alert("Message Sent Successfully !");
-        })
-        .catch((error)=>{
-            alert("Unsuccessful,error"+error);
-        });
-    }
+            })
+                .then(() => {
+                    alert("Message Sent Successfully !");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful,error" + error);
+                });
+        }
 
-    submit.addEventListener('click',InsertData);
+        submit.addEventListener('click', InsertData);
 
     </script>
 
