@@ -232,12 +232,15 @@
         <div class="conatctUsContent">
             <div>
                 <h2>CONTACT US</h2>
-                <form action="" class="conatctUsForm ">
+                <form action="#" class="conatctUsForm" id="form">
 
                     <input type="text" id="name" placeholder="Name">
-                    <input type="email" id="email" placeholder="Email">
+                
+                    <input type="text" id="email1" placeholder="Email" onkeydown="validation()">
+                    <span id="text1"></span>
+                    <br>
+                    
                     <textarea type="text" id="text" placeholder="Comment Here"></textarea>
-
                 </form>
             </div>
             <button class="submit" id="submit-btn" onclick="console.log('hello')">Submit</button>
@@ -259,7 +262,38 @@
             <p><a href="">Terms and Condition</a> <a href="">Privacy Policy</a></p>
         </div>
     </footer>
-
+    <script>
+        function validation(){
+            var form =document.getElementById("form")
+            var mail =document.getElementById("email1").value;
+            var text =document.getElementById("text1");
+     
+            var pattern =/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    
+           if(mail.match(pattern)){
+               form.classList.add("valid");
+                form.classList.remove("invalid");
+                text.innerHTML = "";
+                text.style.color= "#0000CD";
+            }
+            else{
+              
+                form.classList.remove("valid");
+                form.classList.add("invalid");
+                text.innerHTML = "please enter vaild email address";
+                text.style.color= "#ff0000";
+            }
+    
+            if(mail==""){
+               form.classList.remove("valid");
+                form.classList.remove("invalid");
+                text.innerHTML = "";
+                text.style.color= "#0000CD";
+            }
+    
+        };      
+              
+    </script>
     <script>
         let btn = document.getElementById("signInBtn")
 
