@@ -155,7 +155,7 @@
                 <li><img src="./Images/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>SSL Certificate Included</span></li>
                 <br>
-                <a href="/HTML_Files/payment_card.html" style="color: white;">
+                <a href="/HTML_Files/signup.html" class="link1" style="color: white;">
                     <button class="btn" style="cursor: pointer;">Start Free<img src="./Images/arrow-right.svg" alt=""
                             style="margin-left: 5px;">
                     </button>
@@ -176,7 +176,7 @@
                 <li><img src="./Images/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>SSL Certificate Included</span></li>
                 <br>
-                <a href="/HTML_Files/payment_card.html" style="color: white;">
+                <a href="/HTML_Files/signup.html" class="link2" style="color: white;">
                     <button class="btn" style="cursor: pointer;">Start Free<img src="./Images/arrow-right.svg" alt=""
                             style="margin-left: 5px;">
                     </button>
@@ -197,7 +197,7 @@
                 <li><img src="./Images/check.svg" alt=""><span>5 Forms/Unlimited Submissions</span></li>
                 <li><img src="./Images/check.svg" alt=""><span>SSL Certificate Included</span></li>
                 <br>
-                <a href="/HTML_Files/payment_card.html" style="color: white;">
+                <a href="/HTML_Files/signup.html" class="link3" style="color: white;">
                     <button class="btn" style="cursor: pointer;">Start Free<img src="./Images/arrow-right.svg" alt=""
                             style="margin-left: 5px;">
                     </button>
@@ -264,12 +264,16 @@
         let btn = document.getElementById("signInBtn")
 
         if (localStorage.getItem("user")) {
+            document.querySelector(".link1").setAttribute("href","/HTML_Files/user_profile.html");
+            document.querySelector(".link2").setAttribute("href","/HTML_Files/user_profile.html");
+            document.querySelector(".link3").setAttribute("href","/HTML_Files/user_profile.html");
             btn.innerHTML = "Log out"
             btn.value = "Log out"
         }
 
         btn.addEventListener("click", () => {
             if (btn.value == "Log out") {
+                localStorage.clear('mob')
                 console.log('Nice');
                 localStorage.clear()
                 alert('Successfully Log Out')

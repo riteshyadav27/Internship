@@ -41,8 +41,10 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    width: 105%;
+    width: 40%;
     padding: 10px 0;
+    color: whitesmoke;
+    background-color: #ff0000a1;;
 }
 
 .input {
