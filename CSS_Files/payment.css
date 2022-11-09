@@ -45,6 +45,79 @@ input::-webkit-outer-spin-button {
 }
 
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 30px;
+    margin-right: 8%;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+
+body {
+    background: #f9f9f9;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    height: 120vh;
+}
+
+.signup {
+    padding: 50px;
+    height: max-content;
+    border: none;
+    margin-right: 10%;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#bgimg {
+    width: 60vw;
+    height: 60vh;
+    position: relative;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 40%;
+    padding: 10px 0;
+    color: whitesmoke;
+    background-color: #ff0000a1;;
+}
+
+.input {
+    border-radius: 5px;
+    font-size: 12px;
+    padding-left: 10px;
+    margin-top: 3px;
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+}
+
+
+
+.btn:hover {
+    background-color: gray;
+}
 
 .container{
     max-width: 1100px;
@@ -52,24 +125,24 @@ input::-webkit-outer-spin-button {
     padding: 0 1em;
 }
 .outer{
-    margin-top: 5em;
     border-radius: 1.8;
     padding: 4em 2em;
-    background-color: white;
+    background-color: #f9f9f9;
+    margin-bottom: 1em;
 }
-header {
+header1 {
     margin-bottom: 4em;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-header .logo{
+header1 .logo{
     font-size: 2em;
 }
-header .logo strong{
+header1 .logo strong{
     color: var(--main-lighter-color);
 }
-header .time-left{
+header1 .time-left{
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -251,6 +324,34 @@ header .time-left{
     font-size: 1.5em;
 }
 
+
+footer{
+
+    padding: 20px;
+
+}
+
+.footerContent > p{
+    text-align: center;
+}
+
+.footerContent > p >a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.footerContent2 > p{
+    text-align: end;   
+}
+
+.footerContent2 > p >a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    margin: 5px;
+}
+
 @media screen and (min-width: 576px) {
     .outer{
         padding: 2em;
@@ -260,7 +361,7 @@ header .time-left{
     }
 }
 @media screen and (min-width:992px){
-    header{
+    header1{
         max-width: 70%;
         padding-right: 4em;
         margin-bottom: 0;
@@ -278,4 +379,29 @@ header .time-left{
         align-self: flex-end ;
     }
     
+}
+
+
+/* Profile Page */
+@media only screen and (max-width:600px) {
+    .container1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        overflow: hidden;
+        margin: 0px;
+
+    }
+
+    #bgimg {
+        margin-top: 100%;
+        width: 75vw;
+        height: 50vh;
+    }
+
+    .signup {
+        width: 90%;
+        margin: 20%;
+        margin-bottom: 25rem;
+    }
 }
